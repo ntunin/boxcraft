@@ -1,0 +1,9 @@
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Debug\boxcraft.exe.config
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Debug\boxcraft.exe
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Debug\boxcraft.pdb
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Debug\boxcraft.csprojAssemblyReference.cache
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Debug\boxcraft.Properties.Resources.resources
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Debug\boxcraft.csproj.GenerateResource.cache
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Debug\boxcraft.csproj.CoreCompileInputs.cache
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Debug\boxcraft.exe
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Debug\boxcraft.pdb
