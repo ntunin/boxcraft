@@ -7,3 +7,12 @@ C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Debug\boxcraft.cs
 C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Debug\boxcraft.csproj.CoreCompileInputs.cache
 C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Debug\boxcraft.exe
 C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Debug\boxcraft.pdb
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Debug\d3dx-wrapper.exe
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Debug\Microsoft.DirectX.Direct3D.dll
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Debug\Microsoft.DirectX.dll
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Debug\Microsoft.DirectX.Direct3DX.dll
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Debug\d3dx-wrapper.pdb
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Debug\d3dx-wrapper.exe.config
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Debug\Microsoft.DirectX.xml
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Debug\Microsoft.DirectX.Direct3D.xml
+C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Debug\boxcraft.csproj.CopyComplete

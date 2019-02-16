@@ -16,7 +16,9 @@ namespace boxcraft
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            var form = new Form1();
+            form.Show();
+            Application.Run(form);
         }
     }
 }
