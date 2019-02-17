@@ -15,6 +15,8 @@ namespace boxcraft
     {
         private Point center;
 
+        private BoxCraftScene scene;
+
         public Form1()
         {
             InitializeForm();
@@ -33,7 +35,8 @@ namespace boxcraft
 
         protected override Scene CreateScene()
         {
-            return new BoxCraftScene(this);
+            scene = new BoxCraftScene(this);
+            return scene;
         }
 
         private void OnLoad(object sender, EventArgs e)
@@ -47,12 +50,13 @@ namespace boxcraft
             Point p = Cursor.Position;
             float deltaX = p.X - center.X;
             float deltaY = p.Y - center.Y;
-            if (Math.Abs(deltaX) < 1 || Math.Abs(deltaY) < 1) {
+            if (Math.Abs(deltaX) < 1 && Math.Abs(deltaY) < 1) {
                 return;
             }
             deltaX = (float)(deltaX * Math.PI / 180.0);
             deltaY = (float)(deltaY * Math.PI / 180.0);
             Cursor.Position = center;
+            scene.Rotate(deltaX, deltaY);
         }
 
         private void OnKeyDown(object sender, KeyEventArgs e)

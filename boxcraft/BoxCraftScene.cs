@@ -20,6 +20,17 @@ namespace boxcraft
         private Prefab world;
         private float teta;
         private float fi;
+        private Vector3 dir;
+        private Matrix rotation;
+        
+        public void Rotate(float delaX, float delaY)
+        {
+            teta += delaY;
+            fi += delaX;
+            dir = new Vector3((float)Math.Cos(fi), 0,(float)Math.Sin(fi));
+            rotation=Matrix.RotationAxis(dir, teta) * Matrix.RotationY(fi);
+            world.Body.FinalTransform = rotation;
+        }
 
         public BoxCraftScene(Control control) : base(control)
         {
@@ -46,7 +57,7 @@ namespace boxcraft
         {
             var landscapeSkin = (Skin)new SkinBuilder(new Dictionary<string, object> {
                 { "Name", "Landscape" },
-                { "File", "teapot.X" },
+                { "File", "ground.X" },
                 { "MeshFlags", "Managed" },
             }).Create();
 
@@ -55,8 +66,8 @@ namespace boxcraft
                 {"Body", new Dictionary<string, object>{
                     {"Position", new Dictionary<string, object>{
                         {"X", "0"},
-                        {"Y", "0"},
-                        {"Z", "-500"}
+                        {"Y", "-20"},
+                        {"Z", "0"}
                     }}
                 }},
                 {"Skin", "Landscape" }
