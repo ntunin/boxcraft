@@ -22,6 +22,7 @@ namespace boxcraft
         private float fi;
         private Vector3 dir;
         private Matrix rotation;
+        private float speed = 2;
         
         public void Rotate(float delaX, float delaY)
         {
@@ -84,5 +85,22 @@ namespace boxcraft
             prefabs.Add(world);
         }
 
+        public void Translate(float angle)
+        {
+            dir = new Vector3((float)Math.Cos(fi+angle), 0, (float)Math.Sin(fi+angle));
+            world.Body.Position.X += speed * dir.X;
+            world.Body.Position.Z += speed * dir.Z;
+
+        }
+
+        public void TranslateY(float deltaY)
+        {
+            world.Body.Position.Y += speed*deltaY;
+        }
+
+        public void Setspeed(float speed)
+        {
+            this.speed =speed;
+        }
     }
 }

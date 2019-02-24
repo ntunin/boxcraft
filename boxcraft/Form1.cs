@@ -53,14 +53,40 @@ namespace boxcraft
             if (Math.Abs(deltaX) < 1 && Math.Abs(deltaY) < 1) {
                 return;
             }
-            deltaX = (float)(deltaX * Math.PI / 180.0);
+            deltaX = (float)(deltaX * Math.PI / 180.0)*(-1);
             deltaY = (float)(deltaY * Math.PI / 180.0);
             Cursor.Position = center;
             scene.Rotate(deltaX, deltaY);
         }
 
+
+
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
+            switch (e.KeyCode)
+            {
+                case Keys.W:
+                    scene.Translate((float)Math.PI / 2);
+                    break;
+                case Keys.S:
+                    scene.Translate((float)Math.PI / -2);
+                    break;
+                case Keys.A:
+                    scene.Translate((float)Math.PI);
+                    break;
+                case Keys.D:
+                    scene.Translate(0);
+                    break;
+                case Keys.ControlKey:
+                    scene.TranslateY(1);
+                    break;
+                case Keys.Space:
+                    scene.TranslateY(-1);
+                    break;
+                case Keys.E:
+                    scene.Setspeed(10);
+                    break;
+            }
         }
     }
 }
