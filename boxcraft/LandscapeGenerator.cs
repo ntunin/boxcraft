@@ -91,7 +91,13 @@ namespace boxcraft
                         {"Z", $"{position.Z}"}
                     }}
                 }},
-                {"Skin", skinName }
+                {"Skin", skinName },
+                {"Bound", new Dictionary<string, object> {
+                    { "Type", "Box" },
+                    { "Width", "1" },
+                    { "Height", "1" },
+                    { "Depth", "1" },
+                } }
             }).Create();
         }
     }

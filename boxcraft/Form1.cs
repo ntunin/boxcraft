@@ -29,6 +29,7 @@ namespace boxcraft
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             MouseMove += new MouseEventHandler(OnMouseMove);
+            MouseDown += new MouseEventHandler(OnMouseDown);
             KeyDown += new KeyEventHandler(OnKeyDown);
             KeyUp += new KeyEventHandler(OnKeyUp);
             Load += new EventHandler(OnLoad);
@@ -59,6 +60,19 @@ namespace boxcraft
             deltaY = (float)(deltaY * Math.PI / 180.0);
             Cursor.Position = center;
             scene.Rotate(deltaX, deltaY);
+        }
+
+        private void OnMouseDown(object sender, MouseEventArgs e)
+        {
+            switch(e.Button)
+            {
+                case MouseButtons.Left:
+                    scene.PerformRightHandAction();
+                    break;
+                case MouseButtons.Right:
+                    scene.PerformLeftHandAction();
+                    break;
+            }
         }
 
         private void OnKeyDown(object sender, KeyEventArgs e)

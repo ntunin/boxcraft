@@ -20,7 +20,22 @@ namespace boxcraft
         private Matrix rotation;
         
         public float speed = 1;
-        
+
+        public BoxCraftScene(Control control) : base(control)
+        {
+        }
+
+        public void PerformRightHandAction()
+        {
+            Prefab prefab = RayCast();
+        }
+
+        public void PerformLeftHandAction()
+        {
+            Prefab prefab = RayCast();
+            world.RemoveChild(prefab);
+        }
+
         public void Rotate(float delaX, float delaY)
         {
             teta += delaY;
@@ -42,10 +57,6 @@ namespace boxcraft
             world.Body.Position.Y += speed * deltaY;
         }
 
-        public BoxCraftScene(Control control) : base(control)
-        {
-        }
-
         protected override Camera CreateCamera(Control control)
         {
             return new PerspectiveCamera((float)Math.PI / 4, control, 1f, 1000f, new Vector3(0, 0, 0), new Vector3(0, 0, -1), new Vector3(0, 1, 0));
@@ -65,12 +76,12 @@ namespace boxcraft
 
         protected override void AddPrefabs()
         {
-            loadSkins();
-            createWorld();
+            LoadSkins();
+            CreateWorld();
             generateLandscape();
         }
 
-        private void loadSkins()
+        private void LoadSkins()
         {
             new SkinBuilder(new Dictionary<string, object>
             {
@@ -86,7 +97,7 @@ namespace boxcraft
             }).Create();
         }
 
-        private void createWorld()
+        private void CreateWorld()
         {
             world = (Prefab)new PrefabBuilder(new Dictionary<string, object> {
                 {"Name", "World"},
@@ -102,6 +113,14 @@ namespace boxcraft
             {
                 world.AddChild(prefab);
             }
+        }
+
+        private Prefab RayCast()
+        {
+            Vector3 direction = new Vector3((float)Math.Cos(fi + Math.PI / 2),
+                                            (float)Math.Sin(teta),
+                                            (float)Math.Sin(fi + Math.PI / 2));
+            return world.RayCast(new Ray(direction));
         }
 
     }
