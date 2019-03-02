@@ -13,8 +13,6 @@ namespace boxcraft
 {
     class BoxCraftScene : Scene
     {
-
-        private D3DX.Light light1;
         private Prefab world;
         private float teta;
         private float fi;
@@ -50,17 +48,17 @@ namespace boxcraft
 
         protected override Camera CreateCamera(Control control)
         {
-            return new PerspectiveCamera((float)Math.PI / 4, control, 0.001f, 1000f, new Vector3(0, 0, 0), new Vector3(0, 0, -1), new Vector3(0, 1, 0));
+            return new PerspectiveCamera((float)Math.PI / 4, control, 1f, 1000f, new Vector3(0, 0, 0), new Vector3(0, 0, -1), new Vector3(0, 1, 0));
         }
 
         protected override void AddLight()
         {
-            light1 = new D3DX.Light(new Dictionary<string, object> {
+            D3DX.Light light1 = new D3DX.Light(new Dictionary<string, object> {
                 {"Type", LightType.Point},
-                {"Position", new Vector3(0, -100, 0) },
+                {"Position", new Vector3(0, 10, 0) },
                 {"Diffuse", Color.White },
-                {"Attenuation", 0.0f },
-                {"Range", 10000f }
+                {"Attenuation", 1f },
+                {"Range", 100f }
             });
             light.Add(light1);
         }
@@ -69,13 +67,22 @@ namespace boxcraft
         {
             loadSkins();
             createWorld();
+            generateLandscape();
         }
 
         private void loadSkins()
         {
-            new SkinBuilder(new Dictionary<string, object> {
-                { "Name", "Ground" },
-                { "File", "teapot.X" },
+            new SkinBuilder(new Dictionary<string, object>
+            {
+                {"File", "box.X"}
+            }).Create();
+            new SkinBuilder(new Dictionary<string, object>
+            {
+                {"File", "box.X"},
+                {"CustomTextures", new Dictionary<string, object> {
+                    { "box.png", "ground.jpg"}
+                } },
+                {"Name", "Ground"}
             }).Create();
         }
 
@@ -88,20 +95,14 @@ namespace boxcraft
             prefabs.Add(world);
         }
 
-        private Prefab createPrefab(String skinName, Vector3 position)
+        private void generateLandscape()
         {
-            return (Prefab)new PrefabBuilder(new Dictionary<string, object> {
-                {"Body", new Dictionary<string, object>{
-                    {"Position", new Dictionary<string, object>{
-                        {"X", $"{position.X}"},
-                        {"Y", $"{position.Y}"},
-                        {"Z", $"{position.Z}"}
-                    }}
-                }},
-                {"Skin", skinName }
-            }).Create();
+            List<Prefab> prefabs = new LandscapeGenerator().Generate();
+            foreach (Prefab prefab in prefabs)
+            {
+                world.AddChild(prefab);
+            }
         }
-
 
     }
 }
