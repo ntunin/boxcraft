@@ -18,7 +18,17 @@ namespace boxcraft
         private float fi;
         private Vector3 dir;
         private Matrix rotation;
-        
+        private LandscapeGenerator landscapeGenerator;
+        private List<Vector3> neighborhudOffsets = new List<Vector3>
+        {
+            new Vector3(1, 0, 0),
+            new Vector3(-1, 0, 0),
+            new Vector3(0, 1, 0),
+            new Vector3(0, -1, 0),
+            new Vector3(0, 0, 1),
+            new Vector3(0, 0, -1),
+        };
+
         public float speed = 1;
 
         public BoxCraftScene(Control control) : base(control)
@@ -27,12 +37,25 @@ namespace boxcraft
 
         public void PerformRightHandAction()
         {
-            Prefab prefab = RayCast();
+            Ray ray = GetCameraRay();
+            Prefab prefab = world.RayCast(ray);
+            if(prefab == null)
+            {
+                return;
+            }
+            Vector3 position = RaycastToNearestPoint(ray, prefab);
+            Prefab newPrefab = landscapeGenerator.CreatePrefab("ground", position);
+            world.AddChild(newPrefab);
         }
 
         public void PerformLeftHandAction()
         {
-            Prefab prefab = RayCast();
+            Ray ray = GetCameraRay();
+            Prefab prefab = world.RayCast(ray);
+            if(prefab == null)
+            {
+                return;
+            }
             world.RemoveChild(prefab);
         }
 
@@ -78,7 +101,7 @@ namespace boxcraft
         {
             LoadSkins();
             CreateWorld();
-            generateLandscape();
+            GenerateLandscape();
         }
 
         private void LoadSkins()
@@ -106,22 +129,45 @@ namespace boxcraft
             prefabs.Add(world);
         }
 
-        private void generateLandscape()
+        private void GenerateLandscape()
         {
-            List<Prefab> prefabs = new LandscapeGenerator().Generate();
+            landscapeGenerator = new LandscapeGenerator();
+            List<Prefab> prefabs = landscapeGenerator.Generate();
             foreach (Prefab prefab in prefabs)
             {
                 world.AddChild(prefab);
             }
         }
-
-        private Prefab RayCast()
+        
+        private Ray GetCameraRay()
         {
             Vector3 direction = new Vector3((float)Math.Cos(fi + Math.PI / 2),
                                             (float)Math.Sin(teta),
                                             (float)Math.Sin(fi + Math.PI / 2));
-            return world.RayCast(new Ray(direction));
+            return new Ray(direction);
+
         }
 
+        private Vector3 RaycastToNearestPoint(Ray ray, Prefab prefab)
+        {
+            Shape bound = prefab.Bound;
+            Vector3 globalPosition = prefab.GetGlobalPosition();
+            Vector3 nearestOffset = new Vector3();
+            float minDistance = 1e10f;
+            foreach (Vector3 offset in neighborhudOffsets)
+            {
+                Vector3 globalPoint = Vector3.Add(globalPosition, offset);
+                if (bound.RayCast(ray, globalPoint))
+                {
+                    float distance = Vector3.Subtract(globalPoint, ray.Position).Length();
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        nearestOffset = offset;
+                    }
+                }
+            }
+            return Vector3.Add(prefab.Body.Position, nearestOffset);
+        }
     }
 }

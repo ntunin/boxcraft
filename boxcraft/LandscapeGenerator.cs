@@ -75,7 +75,7 @@ namespace boxcraft
             return prefabs;
         }
 
-        private Prefab CreatePrefab(string type, Vector3 position)
+        public Prefab CreatePrefab(string type, Vector3 position)
         {
             Dictionary<string, object> configs = (Dictionary<string, object>)skinConfig[type];
             if (configs == null)
