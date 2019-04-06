@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{AB1582FF-4F98-4982-80A3-7980E0E310D9}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>boxcraft</RootNamespace>
     <AssemblyName>boxcraft</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -32,9 +32,25 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="Microsoft.DirectX.Direct3D, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="d3dx-wrapper">
+      <HintPath>..\d3dx-wrapper\d3dx-wrapper\bin\Debug\d3dx-wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\d3dx-wrapper\Microsoft.DirectX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.Direct3D, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\d3dx-wrapper\Microsoft.DirectX.Direct3D.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.Direct3DX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\d3dx-wrapper\Microsoft.DirectX.Direct3DX.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,7 +66,9 @@
   <ItemGroup>
     <Compile Include="Box.cs" />
     <Compile Include="BoxCraftScene.cs" />
+    <Compile Include="BoxCraftSceneDelegate.cs" />
     <Compile Include="BoxFactory.cs" />
+    <Compile Include="DB.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,8 +79,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SavingService.cs" />
     <Compile Include="SkinLoader.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserFactyory.cs" />
     <Compile Include="World.cs" />
     <Compile Include="WorldGenarator.cs" />
+    <Compile Include="WorldSerializer.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,12 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\d3dx-wrapper\d3dx-wrapper\d3dx-wrapper.csproj">
-      <Project>{EB83A9B6-F12E-4223-8064-FF3CDFECC1CD}</Project>
-      <Name>d3dx-wrapper</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

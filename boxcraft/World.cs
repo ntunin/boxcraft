@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace boxcraft
 {
-    class World
+    public class World
     {
         public Prefab prefab;
         public List<Box> boxes;
+        public List<User> users;
 
         private List<Vector3> neighborhudOffsets = new List<Vector3>
         {
@@ -27,7 +28,8 @@ namespace boxcraft
         {
             prefab = new Prefab(new Body(new Vector3(), new Vector3(), null), 
                                 null, null, null);
-            boxes = new List<Box>(); 
+            boxes = new List<Box>();
+            users = new List<User>();
         }
 
         public void Add(Box box)
@@ -40,6 +42,18 @@ namespace boxcraft
         {
             boxes.Remove(box);
             prefab.RemoveChild(box.prefab);
+        }
+
+        public void Add(User user)
+        {
+            users.Add(user);
+            prefab.AddChild(user.prefab);
+        }
+
+        public void Remove(User user)
+        {
+            users.Remove(user);
+            prefab.RemoveChild(user.prefab);
         }
 
         public void Rotate(float teta, float fi)
@@ -72,9 +86,9 @@ namespace boxcraft
             float minDistance = 1e8f;
             foreach (Box box in raycastedBoxes)
             {
-                float distance = new Vector3(box.prefab.Body.Position.X - ray.Position.X,
-                                               box.prefab.Body.Position.Y - ray.Position.Y,
-                                               box.prefab.Body.Position.Z - ray.Position.Z).Length();
+                float distance = new Vector3(box.prefab.Body.Position.X + prefab.Body.Position.X,
+                                               box.prefab.Body.Position.Y + prefab.Body.Position.Y,
+                                               box.prefab.Body.Position.Z + prefab.Body.Position.Z).Length();
                 if (distance < minDistance)
                 {
                     nearest = box;

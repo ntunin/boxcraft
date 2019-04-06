@@ -14,11 +14,14 @@ namespace boxcraft
         [STAThread]
         static void Main()
         {
+            /*
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var form = new Form1();
             form.Show();
             Application.Run(form);
+            */
+            Console.ReadLine();
         }
     }
 }

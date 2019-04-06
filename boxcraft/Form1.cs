@@ -14,8 +14,7 @@ namespace boxcraft
     public partial class Form1 : D3DXForm
     {
         private Point center;
-
-        private BoxCraftScene scene;
+        public BoxCraftScene scene;
 
         public Form1()
         {
@@ -99,6 +98,15 @@ namespace boxcraft
                     break;
                 case Keys.ShiftKey:
                     scene.speed = 10;
+                    break;
+                case Keys.D1:
+                    scene.selectedBoxType = "ground";
+                    break;
+                case Keys.D2:
+                    scene.selectedBoxType = "stone";
+                    break;
+                case Keys.D3:
+                    scene.selectedBoxType = "bricks";
                     break;
             }
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace boxcraft
 {
-    class Box
+    public class Box
     {
         public Prefab prefab;
         public string type;

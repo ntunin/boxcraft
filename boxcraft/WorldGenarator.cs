@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace boxcraft
 {
-    class WorldGenarator
+    public class WorldGenarator
     {
         private BoxFactory boxFactory = new BoxFactory();
-
+       
         public World Generate()
         {
             World world = new World();

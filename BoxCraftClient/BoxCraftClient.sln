@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxCraftClient", "BoxCraftClient\BoxCraftClient.csproj", "{5964FE49-B140-4ACC-8BA9-FE7FE3797ECA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "boxcraft", "..\boxcraft\boxcraft.csproj", "{AB1582FF-4F98-4982-80A3-7980E0E310D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5964FE49-B140-4ACC-8BA9-FE7FE3797ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5964FE49-B140-4ACC-8BA9-FE7FE3797ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5964FE49-B140-4ACC-8BA9-FE7FE3797ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5964FE49-B140-4ACC-8BA9-FE7FE3797ECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB1582FF-4F98-4982-80A3-7980E0E310D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB1582FF-4F98-4982-80A3-7980E0E310D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB1582FF-4F98-4982-80A3-7980E0E310D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB1582FF-4F98-4982-80A3-7980E0E310D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23168EA6-B6DA-4576-A540-DF844B6F3643}
+	EndGlobalSection
+EndGlobal

@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace boxcraft
 {
-    class BoxFactory
+    public class BoxFactory
     {
         private Dictionary<string, object> skinConfig = new Dictionary<string, object>
         {
-            {"ground", new Dictionary<string, object> {
-                {"name", "Ground" }
-            } }
+            { "ground", new Dictionary<string, object> {{"name", "Ground" }} },
+            { "stone", new Dictionary<string, object> {{"name", "Stone" }} },
+            { "bricks", new Dictionary<string, object> {{"name", "Bricks" }} }
         };
 
         public Box CreateBox(string type, Vector3 position)

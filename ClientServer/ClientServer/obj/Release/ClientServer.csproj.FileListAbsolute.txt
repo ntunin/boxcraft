@@ -1,0 +1,6 @@
+C:\Users\Николай\Documents\GitHub\boxcraft\ClientServer\ClientServer\bin\Release\ClientServer.dll.config
+C:\Users\Николай\Documents\GitHub\boxcraft\ClientServer\ClientServer\bin\Release\ClientServer.dll
+C:\Users\Николай\Documents\GitHub\boxcraft\ClientServer\ClientServer\bin\Release\ClientServer.pdb
+C:\Users\Николай\Documents\GitHub\boxcraft\ClientServer\ClientServer\obj\Release\ClientServer.csproj.CoreCompileInputs.cache
+C:\Users\Николай\Documents\GitHub\boxcraft\ClientServer\ClientServer\obj\Release\ClientServer.dll
+C:\Users\Николай\Documents\GitHub\boxcraft\ClientServer\ClientServer\obj\Release\ClientServer.pdb
