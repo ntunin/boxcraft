@@ -10,7 +10,7 @@ namespace boxcraft
 {
     public class UserFactyory
     {
-        public User CreateUser(string name, Vector3 position, Vector3 rotation)
+        public static User CreateUser(string name, Vector3 position, Vector3 rotation)
         {
             var record = DB.Users.Where((user) => { return user.Name.Equals(name); }).First();
             var prefab = (Prefab)new PrefabBuilder(new Dictionary<string, object> {
@@ -28,6 +28,7 @@ namespace boxcraft
                 }},
                 {"Skin", record.Skin }
             }).Create();
+            //prefab.Body.StartTransform = Matrix.RotationY((float)Math.PI / 2);
             return new User(name, prefab);
         }
     }

@@ -16,14 +16,17 @@ namespace boxcraft
         private World world;
         private float teta;
         private float fi;
-        private BoxFactory boxFactory = new BoxFactory();
         public BoxCraftSceneDelegate dlgt;
 
         public string selectedBoxType = "ground";
         public float speed = 1;
+        private Sprite crossSprite;
+        private Texture crossTexture;
+        private Point crossPosition;
 
         public BoxCraftScene(Control control) : base(control)
         {
+            InitCross();
         }
 
         public void Load(World world)
@@ -45,11 +48,11 @@ namespace boxcraft
                 return;
             }
             Vector3 position = world.RaycastToNearestPoint(ray, box);
-            Box newBox = boxFactory.CreateBox(selectedBoxType, position);
+            Box newBox = BoxFactory.CreateBox(selectedBoxType, position);
             world.Add(newBox);
             if (dlgt != null)
             {
-                dlgt.onRightHandAction();
+                dlgt.OnCreateBox(newBox);
             }
         }
 
@@ -68,7 +71,7 @@ namespace boxcraft
             world.Remove(box);
             if (dlgt != null)
             {
-                dlgt.onLeftHandAction();
+                dlgt.OnRemoveBox(box);
             }
         }
 
@@ -84,7 +87,7 @@ namespace boxcraft
 
             if (dlgt != null)
             {
-                dlgt.onRotate(world.prefab.Body.Rotation);
+                dlgt.OnRotate(new Vector3(-teta, -fi, 0));
             }
         }
 
@@ -99,7 +102,7 @@ namespace boxcraft
 
             if (dlgt != null)
             {
-                dlgt.onMove(-world.prefab.Body.Position);
+                dlgt.OnMove(-world.prefab.Body.Position);
             }
         }
 
@@ -119,7 +122,7 @@ namespace boxcraft
             world.Translate(0, speed * deltaY, 0);
             if (dlgt != null)
             {
-                dlgt.onMove(-world.prefab.Body.Position);
+                dlgt.OnMove(-world.prefab.Body.Position);
             }
         }
 
@@ -168,6 +171,30 @@ namespace boxcraft
             float dx = (float)(Math.Sin(fi)*Math.Sin(teta1));
             float dz = -(float)(Math.Cos(fi)*Math.Sin(teta1));
             return new Ray(new Vector3(dx, dy, dz));
+        }
+
+        public override void Present(float deltaTime)
+        {
+            base.Present(deltaTime);
+            DrawCross();
+        }
+
+        private void InitCross()
+        {
+            var device = SceneContext.Shared.Device;
+            device.RenderState.SourceBlend = Blend.SourceAlpha;
+            device.RenderState.DestinationBlend = Blend.InvSourceAlpha;
+            device.RenderState.AlphaBlendEnable = true;
+            crossSprite = new Sprite(device);
+            crossTexture = TextureLoader.FromFile(device, "cross.png", 16, 16, 0, Usage.None, Format.A8B8G8R8, Pool.Managed, Filter.None, Filter.None, Color.White.ToArgb());
+            crossPosition = new Point(control.Width / 2, (int)(control.Height * 0.85 / 2));
+        }
+
+        private void DrawCross()
+        {
+            crossSprite.Begin(SpriteFlags.None);
+            crossSprite.Draw2D(crossTexture, Point.Empty, 0, crossPosition, Color.White);
+            crossSprite.End();
 
         }
     }

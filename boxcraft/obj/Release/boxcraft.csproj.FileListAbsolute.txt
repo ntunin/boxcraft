@@ -3,8 +3,6 @@ C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Release\Microsoft
 C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Release\Microsoft.DirectX.dll
 C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Release\Microsoft.DirectX.Direct3DX.dll
 C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Release\d3dx-wrapper.pdb
-C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Release\Microsoft.DirectX.xml
-C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\bin\Release\Microsoft.DirectX.Direct3D.xml
 C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Release\boxcraft.csprojAssemblyReference.cache
 C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Release\boxcraft.Properties.Resources.resources
 C:\Users\Николай\Documents\GitHub\boxcraft\boxcraft\obj\Release\boxcraft.csproj.GenerateResource.cache

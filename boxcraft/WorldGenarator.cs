@@ -10,14 +10,11 @@ namespace boxcraft
 {
     public class WorldGenarator
     {
-        private BoxFactory boxFactory = new BoxFactory();
-       
         public World Generate()
         {
             World world = new World();
             Dictionary<string, Box> map = new Dictionary<string, Box>();
-            PutIntoMap(map, GeneratePlane("ground", new Vector3(0, -2, 0), 10, 10));
-            PutIntoMap(map, GenerateSphere("ground", new Vector3(0, -2, -10), 5));
+            PutIntoMap(map, GeneratePlane("ground", new Vector3(0, -5, 0), 20, 20));
             UnwrapMap(map, world);
             return world;
         }
@@ -33,7 +30,7 @@ namespace boxcraft
                     Vector3 position = new Vector3(distance * (j - width * 0.5f) + center.X + 0.5f,
                                                         center.Y + 0.5f,
                                                        distance * (i - height * 0.5f) + center.Z + 0.5f);
-                    Box box = boxFactory.CreateBox(type, position);
+                    Box box = BoxFactory.CreateBox(type, position);
                     list.Add(box);
                 }
             }
@@ -55,7 +52,7 @@ namespace boxcraft
                             Vector3 position = new Vector3(distance * x + center.X + 0.5f,
                                                            distance * y + center.Y + 0.5f,
                                                            distance * z + center.Z + 0.5f);
-                            Box box = boxFactory.CreateBox(type, position);
+                            Box box = BoxFactory.CreateBox(type, position);
                             list.Add(box);
                         }
                     }

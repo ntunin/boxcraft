@@ -36,8 +36,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="d3dx-wrapper">
-      <HintPath>..\d3dx-wrapper\d3dx-wrapper\bin\Debug\d3dx-wrapper.dll</HintPath>
+    <Reference Include="d3dx-wrapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\d3dx-wrapper\d3dx-wrapper\bin\Release\d3dx-wrapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
@@ -78,6 +79,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SavingService.cs" />
+    <Compile Include="Session.cs" />
     <Compile Include="SkinLoader.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserFactyory.cs" />

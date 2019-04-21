@@ -13,9 +13,9 @@ C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\
 C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\bin\Release\ClientServer.dll.config
 C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\bin\Release\d3dx-wrapper.pdb
 C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\bin\Release\d3dx-wrapper.dll.config
-C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\bin\Release\Microsoft.DirectX.xml
-C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\bin\Release\Microsoft.DirectX.Direct3D.xml
 C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\obj\Release\BoxCraftServer.csproj.CoreCompileInputs.cache
 C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\obj\Release\BoxCraftServer.csproj.CopyComplete
 C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\obj\Release\BoxCraftServer.exe
 C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\obj\Release\BoxCraftServer.pdb
+C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\bin\Release\boxcraft.exe.config
+C:\Users\Николай\Documents\GitHub\boxcraft\BoxCraftServer\BoxCraftServer\obj\Release\BoxCraftServer.csprojAssemblyReference.cache

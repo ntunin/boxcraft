@@ -9,9 +9,9 @@ namespace boxcraft
 {
     public interface BoxCraftSceneDelegate
     {
-        void onRotate(Vector3 rotation);
-        void onMove(Vector3 position);
-        void onLeftHandAction();
-        void onRightHandAction();
+        void OnRotate(Vector3 rotation);
+        void OnMove(Vector3 position);
+        void OnRemoveBox(Box box);
+        void OnCreateBox(Box box);
     }
 }

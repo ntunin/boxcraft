@@ -5,10 +5,10 @@ namespace boxcraft
 {
     public class WorldSerializer
     {
-        private  BoxParser boxParser = new BoxParser();
-        private UserParser userParser = new UserParser();
+        private static BoxParser boxParser = new BoxParser();
+        private static UserParser userParser = new UserParser();
 
-        public string Serialize(World world)
+        public static string Serialize(World world)
         {
             string result = "";
             result += "boxes\n";
@@ -18,7 +18,7 @@ namespace boxcraft
             return result;
         }
 
-        public World Deserialize(string str)
+        public static World Deserialize(string str)
         {
             var world = new World();
             string[] lines = str.Split('\n');
@@ -38,31 +38,41 @@ namespace boxcraft
             return world;
         }
 
-        public User DeserializeUser(string str)
+        public static User DeserializeUser(string str)
         {
             return userParser.Parse(str);
         }
 
-        public string SerializeUser(User user)
+        public static string SerializeUser(User user)
         {
             return userParser.Archive(user);
         }
 
-        public Box DeserializeBox(string str)
+        public static Box DeserializeBox(string str)
         {
             return boxParser.Parse(str);
         }
 
-        public string SerizlizeBox(Box box)
+        public static string SerizlizeBox(Box box)
         {
             return boxParser.Archive(box);
+        }
+
+        public static string SerializeVector(Vector3 vector)
+        {
+            return $"{vector.X};{vector.Y};{vector.Z}";
+        }
+
+        public static Vector3 DeserializeVector(string str)
+        {
+            return boxParser.ParseVector3(str);
         }
 
         private abstract class Parser
         {
             public abstract void Parse(string line, World world);
 
-            protected Vector3 parseVector3(string line)
+            public Vector3 ParseVector3(string line)
             {
                 string[] components = line.Split(';');
                 if(components.Length != 3)
@@ -97,9 +107,9 @@ namespace boxcraft
                     throw new Exception($"Wrong user line passed: {line}");
                 }
                 string name = components[0];
-                Vector3 position = parseVector3(components[1]);
-                Vector3 rotation = parseVector3(components[2]);
-                var user = userFactyory.CreateUser(name, position, rotation);
+                Vector3 position = ParseVector3(components[1]);
+                Vector3 rotation = ParseVector3(components[2]);
+                var user = UserFactyory.CreateUser(name, position, rotation);
                 return user;
             }
 
@@ -107,14 +117,12 @@ namespace boxcraft
             {
                 var p = user.prefab.Body.Position;
                 var r = user.prefab.Body.Rotation;
-                return $"{user.name}|{p.X};{p.Y};{p.Z}|{r.X};{r.Y};{r.Z}";
+                return $"{user.name}|{SerializeVector(p)}|{SerializeVector(r)}";
             }
         }
 
         private class BoxParser : Parser
         {
-            private BoxFactory boxFactory = new BoxFactory();
-
             public override void Parse(string line, World world)
             {
                 if (line.Length == 0)
@@ -133,15 +141,15 @@ namespace boxcraft
                     throw new Exception($"Wrong box line passed: {line}");
                 }
                 string type = components[0];
-                Vector3 position = parseVector3(components[1]);
-                var box = boxFactory.CreateBox(type, position);
+                Vector3 position = ParseVector3(components[1]);
+                var box = BoxFactory.CreateBox(type, position);
                 return box;
             }
 
             public string Archive(Box box)
             {
                 var p = box.prefab.Body.Position;
-                return $"{box.type}|{p.X};{p.Y};{p.Z}";
+                return $"{box.type}|{SerializeVector(p)}";
             }
         }
     }

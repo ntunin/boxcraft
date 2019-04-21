@@ -10,13 +10,12 @@ namespace boxcraft
 {
     public class SavingService
     {
-        WorldSerializer serializer = new WorldSerializer();
 
         string filename = "boxcraft.save";
 
         public void Save(World world)
         {
-            var str = serializer.Serialize(world);
+            var str = WorldSerializer.Serialize(world);
             var writer = new StreamWriter(filename);
             writer.Write(str);
             writer.Close();
@@ -26,7 +25,7 @@ namespace boxcraft
         {
             var reader = new StreamReader(filename);
             var str = reader.ReadToEnd();
-            var world = serializer.Deserialize(str);
+            var world = WorldSerializer.Deserialize(str);
             reader.Close();
             return world;
         }

@@ -18,7 +18,7 @@ namespace BoxCraftClient
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var form = new Form1();
-            var client = new BoxCraftClient("192.168.0.101", "Asel", form.scene);
+            var client = new BoxCraftClient(Constants.serverHost, Constants.username, form.scene);
             Application.Run(form);
         }
     }

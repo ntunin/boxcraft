@@ -108,6 +108,9 @@ namespace boxcraft
                 case Keys.D3:
                     scene.selectedBoxType = "bricks";
                     break;
+                case Keys.D4:
+                    scene.selectedBoxType = "wood";
+                    break;
             }
         }
 

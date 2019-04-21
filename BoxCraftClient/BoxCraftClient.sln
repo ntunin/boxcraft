@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxCraftClient", "BoxCraftC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "boxcraft", "..\boxcraft\boxcraft.csproj", "{AB1582FF-4F98-4982-80A3-7980E0E310D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "d3dx-wrapper", "..\d3dx-wrapper\d3dx-wrapper\d3dx-wrapper.csproj", "{EB83A9B6-F12E-4223-8064-FF3CDFECC1CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AB1582FF-4F98-4982-80A3-7980E0E310D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB1582FF-4F98-4982-80A3-7980E0E310D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB1582FF-4F98-4982-80A3-7980E0E310D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB83A9B6-F12E-4223-8064-FF3CDFECC1CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB83A9B6-F12E-4223-8064-FF3CDFECC1CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB83A9B6-F12E-4223-8064-FF3CDFECC1CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB83A9B6-F12E-4223-8064-FF3CDFECC1CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

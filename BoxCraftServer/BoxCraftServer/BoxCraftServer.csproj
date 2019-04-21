@@ -35,14 +35,14 @@
   <ItemGroup>
     <Reference Include="boxcraft, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\boxcraft\bin\Debug\boxcraft.dll</HintPath>
+      <HintPath>..\..\boxcraft\bin\Release\boxcraft.dll</HintPath>
     </Reference>
     <Reference Include="ClientServer">
       <HintPath>..\..\ClientServer\ClientServer\bin\Release\ClientServer.dll</HintPath>
     </Reference>
     <Reference Include="d3dx-wrapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\boxcraft\bin\Debug\d3dx-wrapper.dll</HintPath>
+      <HintPath>..\..\d3dx-wrapper\d3dx-wrapper\bin\Release\d3dx-wrapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>

@@ -20,11 +20,17 @@ namespace boxcraft
             LoadBox("Ground", "ground.jpg");
             LoadBox("Stone", "stone.png");
             LoadBox("Bricks", "bricks.png");
-            new SkinBuilder(new Dictionary<string, object>
-            {
-                {"File", "cross.X"},
-                {"Name", "Cross"}
-            }).Create();
+            LoadBox("Wood", "wood.jpg");
+
+            LoadUser("Nik", "ntunin.png");
+            LoadUser("Cam", "cam.png");
+            LoadUser("Asel", "asel.png");
+            LoadUser("Nastya", "nastya.png");
+            LoadUser("Alexey", "alexey.png");
+            LoadUser("Slava", "slava.png");
+            LoadUser("Victor", "victor.png");
+            LoadUser("Nikita M", "nminin.png");
+            LoadUser("Nikita Ch", "nchubarov.png");
         }
 
         private void LoadBox(string name, string texture)
@@ -39,5 +45,16 @@ namespace boxcraft
             }).Create();
         }
 
+        private void LoadUser(string name, string texture)
+        {
+            new SkinBuilder(new Dictionary<string, object>
+            {
+                {"File", "boxface.X"},
+                {"CustomTextures", new Dictionary<string, object> {
+                    { "ntunin.png", texture}
+                } },
+                {"Name", name}
+            }).Create();
+        }
     }
 }

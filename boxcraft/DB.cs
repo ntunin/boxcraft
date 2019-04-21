@@ -10,13 +10,15 @@ namespace boxcraft
     {
         public static List<User> Users = new List<User>
         {
-            new User("Nikita Ch", "Stone"),
-            new User("Nikita M", "Stone"),
-            new User("Vyacheslav", "Stone"),
-            new User("Aleksey", "Stone"),
-            new User("Victor", "Stone"),
-            new User("Asel", "Stone"),
-            new User("Anastasiya", "Stone")
+            new User("Nikita Ch", "Nikita Ch"),
+            new User("Nikita M", "Nikita M"),
+            new User("Vyacheslav", "Vyacheslav"),
+            new User("Aleksey", "Aleksey"),
+            new User("Victor", "Victor"),
+            new User("Asel", "Asel"),
+            new User("Nastya", "Nastya"),
+            new User("Nik", "Nik"),
+            new User("Cam", "Cam")
         };
 
         public class User
